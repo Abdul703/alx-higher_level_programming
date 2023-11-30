@@ -6,6 +6,6 @@ if __name__ == '__main__':
     if len_args == 1:
         print('0 arguments.')
     else:
-        print(f'{len_args:d} arguments:')
+        print(f'{len_args - 1:d} arguments:')
         for i in range(1, len_args):
             print(f"{i:d}: {sys.argv[i]}")
