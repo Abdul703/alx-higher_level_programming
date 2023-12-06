@@ -18,6 +18,9 @@ def roman_to_int(roman_string):
     }
     num = 0
 
+    if roman_string is None or isinstance(roman_string, str):
+        return 0
+
     for figure in sorted(romans.keys(), key=len, reverse=True):
         while figure in roman_string:
             roman_string = roman_string.replace(figure, '', 1)
