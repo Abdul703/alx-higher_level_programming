@@ -46,7 +46,7 @@ class Square:
         """
         return self.__size
 
-    @size.getter
+    @size.setter
     def size(self, value):
         """
         Set the value of the size to new value
@@ -54,4 +54,8 @@ class Square:
         Args:
             value (int): new value for the size
         """
+        if not isinstance(value, int):
+            raise ValueError("size must be an integer")
+        elif value < 0:
+            raise TypeError("size must be >= 0")
         self.__size = value
