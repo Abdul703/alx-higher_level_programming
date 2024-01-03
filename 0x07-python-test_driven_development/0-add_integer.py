@@ -3,11 +3,11 @@
 This module provides a simple calculator with basic arithmetic functions.
 
 Functions:
-- add_numbers(a, b): Adds two numbers.
+- add_integer(a, b): Adds two numbers.
 """
 
 
-def add_numbers(a, b=98):
+def add_integer(a, b=98):
     """
     Adds two numbers.
 
