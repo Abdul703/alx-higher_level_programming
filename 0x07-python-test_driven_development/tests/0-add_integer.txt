@@ -1,0 +1,33 @@
+Doctests for the 0-add_integer module.
+
+Examples:
+>>> add_numbers = __import__('0-add_integer').add_numbers
+>>> add_numbers(2, 3)
+5
+
+>>> add_numbers(-1, 5)
+4
+
+>>> add_numbers(0, 0)
+0
+
+>>> add_numbers(32.4, 4)
+36
+
+>>> add_numbers(4, 'c')
+Traceback (most recent call last):
+    ...
+TypeError: b must be an integer
+
+>>> add_numbers(4)
+102
+
+>>> add_numbers(None, None)
+Traceback (most recent call last):
+  ...
+TypeError: a must be an integer
+
+>>> add_numbers()
+Traceback (most recent call last):
+  ...
+TypeError: add_numbers() missing 1 required positional argument: 'a'
