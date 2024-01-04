@@ -14,9 +14,6 @@ def say_my_name(first_name, last_name=""):
     Parameters:
     - first_name (str): the first name
     - last_name (str): the last name
-
-    Return:
-    str: full name
     """
 
     if not isinstance(first_name, str):
