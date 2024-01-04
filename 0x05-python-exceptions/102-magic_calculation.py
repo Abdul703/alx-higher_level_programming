@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+import dis
 def magic_calculation(a, b):
     result = 0
     for i in range(1, 4):
@@ -11,3 +11,4 @@ def magic_calculation(a, b):
             result = a + b
         finally:
             return result
+dis.dis(magic_calculation)
