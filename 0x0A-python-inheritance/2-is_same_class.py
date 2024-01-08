@@ -1,17 +1,17 @@
 #!/usr/bin/python3
 """
-Module that provide function that check if object is an instance of a class
+Module that provides a function to check if object is an instance of a class.
 """
 
 
 def is_same_class(obj, a_class):
-    """check if object is an instance of a class
+    """Check if an object is an instance of a class.
 
     Args:
-        obj (object): object to check
-        a_class (class): class to check on
+        obj (object): Object to check.
+        a_class (class): Class to check against.
 
     Returns:
-        True if is instance otherwise False
+        bool: True if the object is an instance of the class, otherwise False.
     """
     return type(obj) == a_class
