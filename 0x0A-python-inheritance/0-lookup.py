@@ -2,6 +2,8 @@
 """
 Module that provide function to returns attributes and methods of an object
 """
+
+
 def lookup(obj):
     """returns attributes and methods of an object
 
