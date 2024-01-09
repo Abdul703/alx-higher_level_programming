@@ -7,3 +7,43 @@ importing the function
 Testing 2x2 matrix division by an integer
     >>> matrix_divided([[2, 2], [5, 2]], 2)
     [[1.0, 1.0], [2.5, 1.0]]
+
+Testing 2x2 matrix division by string
+    >>> matrix_divided([[2, 2], [5, 2]], '2')
+    Traceback (most recent call last):
+    ...
+    TypeError: div must be a number
+
+Testing 2x2 matrix division by 0
+>>> matrix_divided([[2, 2], [5, 2]], 0)
+    Traceback (most recent call last):
+    ...
+    ZeroDivisionError: division by zero
+
+Testing division of 2x2 matrix that have string element by integer
+>>> matrix_divided([['2', 2], [5, 2]], 3)
+    Traceback (most recent call last):
+    ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Matrix size not equal
+>>> matrix_divided([[2], [5, 2]], 3)
+    Traceback (most recent call last):
+    ...
+    TypeError: Each row of the matrix must have the same size
+
+dividing by an infinite number
+    >>> matrix_divided([[2, 2], [5, 2]], float('inf'))
+    [[0.0, 0.0], [0.0, 0.0]]
+
+missing one required argument 'div'
+>>> matrix_divided([[2, 2], [5, 2]])
+    Traceback (most recent call last):
+    ...
+    TypeError: matrix_divided() missing 1 required positional argument: 'div'
+
+missing the 2 required arguments
+    >>> matrix_divided()
+    Traceback (most recent call last):
+    ...
+    TypeError: matrix_divided() missing 2 required positional arguments: 'matrix' and 'div'
