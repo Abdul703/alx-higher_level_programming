@@ -17,7 +17,7 @@ Testing 2x2 matrix division by string
 Testing 2x2 matrix division by 0
 >>> matrix_divided([[2, 2], [5, 2]], 0)
     Traceback (most recent call last):
-    ...
+        ...
     ZeroDivisionError: division by zero
 
 Testing division of 2x2 matrix that have string element by integer
