@@ -1,21 +1,104 @@
-This is the BaseGeometry module
+================================
+Doctest for Base Geometry module
+================================
 
-This is an example text file
+==================
+Let's execute it
+==================
 
-First import BaseGeometry from the 1-my_list module:
+This is an example text file in reStructuredText format
+
+First import BaseGeometry from the 7-base_geometry module:
 
     >>> BaseGeometry = __import__("7-base_geometry").BaseGeometry
 
-Let's test it:
-
+=============
+Let's use it:
+=============
     >>> geometry = BaseGeometry()
+    >>> type(geometry)
+    <class '7-base_geometry.BaseGeometry'>
 
-    checking integer integer_validator with an integer
-    >>> print(geometry.integer_validator("side_length", 5))
-    None
 
-    checking with float
-    >>> print(geometry.integer_validator("side_length", 5.5))
+This class should define 2 functions
+
+``area``
+    >>> 'area' in dir(BaseGeometry)
+    True
+
+``integer_validator``
+    >>> 'integer_validator' in dir(BaseGeometry)
+    True
+
+Methods test the publicity of the methods
+
+No instance attributes or methods
+    >>> dir(geometry) == dir(BaseGeometry)
+    True
+
+===================
+Testing ``area``
+===================
+
+If it's not applied
+    >>> geometry.area()
     Traceback (most recent call last):
-        ...
+    Exception: area() is not implemented
+
+================================
+Testing ``integer_validator``
+================================
+
+Two arguments must be provided
+
+    >>> geometry.integer_validator()
+    Traceback (most recent call last):
+    TypeError: BaseGeometry.integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+    >>> geometry.integer_validator(49)
+    Traceback (most recent call last):
+    TypeError: BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
+
+    >>> geometry.integer_validator(2, 6, 72)
+    Traceback (most recent call last):
+    TypeError: BaseGeometry.integer_validator() takes 3 positional arguments but 4 were given
+
+
+====================
+Testing the type
+====================
+
+    >>> geometry.integer_validator("name", True)
+    Traceback (most recent call last):
+    ...
     TypeError: name must be an integer
+
+    >>> geometry.integer_validator("name", 7.5)
+    Traceback (most recent call last):
+    ...
+    TypeError: name must be an integer
+
+    >>> geometry.integer_validator("name", [4, 2, 5, 2])
+    Traceback (most recent call last):
+    ...
+    TypeError: name must be an integer
+     
+    >>> geometry.integer_validator("name", "Abdul")
+    Traceback (most recent call last):
+    ...
+    TypeError: name must be an integer
+
+
+===============
+Testing sign
+===============
+
+    >>> geometry.integer_validator("name", -1)
+    Traceback (most recent call last):
+    ValueError: name must be greater than 0
+
+    >>> geometry.integer_validator("name", 0)
+    Traceback (most recent call last):
+    ValueError: name must be greater than 0
+
+    >>> geometry.integer_validator("name", 3)
