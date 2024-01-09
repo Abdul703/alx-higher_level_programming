@@ -47,14 +47,17 @@ Two arguments must be provided
 
     >>> geometry.integer_validator()
     Traceback (most recent call last):
+        ...
     TypeError: BaseGeometry.integer_validator() missing 2 required positional arguments: 'name' and 'value'
 
     >>> geometry.integer_validator(49)
     Traceback (most recent call last):
+        ...
     TypeError: BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
 
     >>> geometry.integer_validator(2, 6, 72)
     Traceback (most recent call last):
+        ...
     TypeError: BaseGeometry.integer_validator() takes 3 positional arguments but 4 were given
 
 
@@ -89,10 +92,12 @@ Testing sign
 
     >>> geometry.integer_validator("name", -1)
     Traceback (most recent call last):
+        ...
     ValueError: name must be greater than 0
 
     >>> geometry.integer_validator("name", 0)
     Traceback (most recent call last):
+        ...
     ValueError: name must be greater than 0
 
     >>> geometry.integer_validator("name", 3)
