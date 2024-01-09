@@ -1,0 +1,9 @@
+Doctest for matrix_divided module
+================================
+
+importing the function
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+Testing 2x2 matrix division by an integer
+    >>> matrix_divided([[2, 2], [5, 2]], 2)
+    [[1.0, 1.0], [2.5, 1.0]]
