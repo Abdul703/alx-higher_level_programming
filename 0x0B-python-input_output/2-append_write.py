@@ -8,6 +8,9 @@ def append_write(filename="", text=""):
     Args:
         filename (str, optional): name of the file. Defaults to "".
         text (str, optional): text to append. Defaults to "".
+
+    Returns:
+        number of bytes append
     """
     with open(filename, 'a', encoding='utf-8') as f:
         return f.write(text)
