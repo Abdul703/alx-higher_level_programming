@@ -10,7 +10,7 @@ class Rectangle(Base):
         Base (class): Base class
     """
 
-    def __init__(self, height, width, x=0, y=0, id=None):
+    def __init__(self, width, height, x=0, y=0, id=None):
         """initialise Rectangle instance
 
         Args:
@@ -20,10 +20,10 @@ class Rectangle(Base):
             y (int, optional): . Defaults to 0.
             id (int, optional): id of the rectangle. Defaults to None.
         """
-        self.__height = height
-        self.__width = width
-        self.__x = x
-        self.__y = y
+        self.height = height
+        self.width = width
+        self.x = x
+        self.y = y
         super().__init__(id)
 
     @property
