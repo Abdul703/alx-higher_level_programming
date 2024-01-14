@@ -71,3 +71,15 @@ class Square(Rectangle):
                 if hasattr(self, key):
                     setattr(self, key, value)
     
+    def to_dictionary(self):
+        """object representation of the rectangle
+
+        Returns:
+            dict: rectangle data in dict form
+        """
+        return {
+            'id': self.id,
+            'size': self.size,
+            'x': self.x,
+            'y': self.y,
+        }
