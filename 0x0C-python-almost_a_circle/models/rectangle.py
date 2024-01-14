@@ -141,11 +141,18 @@ class Rectangle(Base):
             int: area of rectangle
         """
         return self.width * self.height
-    
+
     def display(self):
         """display the rectangle in #"""
 
-        for i in range(self.height):
-            for j in range(self.width):
-                print('#', end='')
+        for k in range(self.y):
             print()
+
+        for i in range(self.height):
+            print(" " * self.x, end="")
+            for j in range(self.width):
+                print("#", end="")
+            print()
+
+    def __str__(self):
+        return f"[Rectangle] ({self.id}) {self.x}/{self.y} - {self.width}/{self.height}"
