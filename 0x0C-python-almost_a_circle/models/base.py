@@ -2,6 +2,7 @@
 """Base class for all subsequent classes"""
 import json
 
+
 class Base:
     """The Base class"""
 

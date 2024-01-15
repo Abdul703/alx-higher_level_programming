@@ -21,7 +21,7 @@ class Square(Rectangle):
         """
         super().__init__(size, size, x, y, id)
         self.size = size
-    
+
     def __str__(self):
         """print the Square information
 
@@ -29,7 +29,7 @@ class Square(Rectangle):
             str: Square data
         """
         return f"[Square] ({self.id}) {self.x}/{self.y} - {self.size}"
-    
+
     @property
     def size(self):
         """Getter for the size
@@ -70,7 +70,7 @@ class Square(Rectangle):
             for key, value in kwargs.items():
                 if hasattr(self, key):
                     setattr(self, key, value)
-    
+
     def to_dictionary(self):
         """object representation of the rectangle
 
