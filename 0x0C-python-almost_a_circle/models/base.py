@@ -64,3 +64,14 @@ class Base:
         if json_string:
             return json.loads(json_string)
         return []
+    
+    @classmethod
+    def create(cls, **dictionary):
+        """duplicate an instance
+
+        Returns:
+            instance: an instance that can be Square or Rectangle
+        """
+        dummy_instance = cls(1, 2, 3)
+        dummy_instance.update(**dictionary)
+        return dummy_instance
