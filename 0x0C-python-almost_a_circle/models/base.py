@@ -50,3 +50,17 @@ class Base:
                 json_str = cls.to_json_string(objs)
                 f.write(json_str)
         f.close()
+
+    @staticmethod
+    def from_json_string(json_string):
+        """deserialise a string
+
+        Args:
+            json_string (str): a string to deserialise
+
+        Returns:
+            str: deserialised string
+        """
+        if json_string:
+            return json.loads(json_string)
+        return '[]'
