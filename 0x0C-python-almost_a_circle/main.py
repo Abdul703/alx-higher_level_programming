@@ -1,41 +1,102 @@
 #!/usr/bin/python3
-""" 100-main """
-from models.rectangle import Rectangle
+""" Check """
 from models.square import Square
 
-if __name__ == "__main__":
+# s = Square(5)
+# if s.id != 1:
+#     print("ID must be equal to 1: {}".format(s.id))
+#     exit(1)
 
-    r1 = Rectangle(10, 7, 2, 8)
-    r2 = Rectangle(2, 4)
-    list_rectangles_input = [r1, r2]
+# if s.width != 5:
+#     print("Width of the Square must be 5: {}".format(s.width))
+#     exit(1)
 
-    Rectangle.save_to_file_csv(list_rectangles_input)
+# if s.height != 5:
+#     print("Height of the Square must be 5: {}".format(s.height))
+#     exit(1)
 
-    list_rectangles_output = Rectangle.load_from_file_csv()
+try:
+    Square("12")
+    print("TypeError exception not raised")
+    exit(1)
+except TypeError as e:
+    if str(e) != "width must be an integer":
+        print("Wrong exception message: {}".format(e))
+        exit(1)
+except Exception as e:
+    print("Wrong exception: [{}] {}".format(type(e), e))
+    exit(1)
 
-    for rect in list_rectangles_input:
-        print("[{}] {}".format(id(rect), rect))
+# try:
+#     Square([13])
+#     print("TypeError exception not raised")
+#     exit(1)
+# except TypeError as e:
+#     if str(e) != "width must be an integer":
+#         print("Wrong exception message: {}".format(e))
+#         exit(1)
+# except Exception as e:
+#     print("Wrong exception: [{}] {}".format(type(e), e))
+#     exit(1)
 
-    print("---")
+# try:
+#     Square(13.12)
+#     print("TypeError exception not raised")
+#     exit(1)
+# except TypeError as e:
+#     if str(e) != "width must be an integer":
+#         print("Wrong exception message: {}".format(e))
+#         exit(1)
+# except Exception as e:
+#     print("Wrong exception: [{}] {}".format(type(e), e))
+#     exit(1)
 
-    for rect in list_rectangles_output:
-        print("[{}] {}".format(id(rect), rect))
+# try:
+#     Square({ 'id': 12 })
+#     print("TypeError exception not raised")
+#     exit(1)
+# except TypeError as e:
+#     if str(e) != "width must be an integer":
+#         print("Wrong exception message: {}".format(e))
+#         exit(1)
+# except Exception as e:
+#     print("Wrong exception: [{}] {}".format(type(e), e))
+#     exit(1)
+    
+# try:
+#     Square(-12)
+#     print("ValueError exception not raised")
+#     exit(1)
+# except ValueError as e:
+#     if str(e) != "width must be > 0":
+#         print("Wrong exception message: {}".format(e))
+#         exit(1)
+# except Exception as e:
+#     print("Wrong exception: [{}] {}".format(type(e), e))
+#     exit(1)
 
-    print("---")
-    print("---")
+# try:
+#     Square(-89)
+#     print("ValueError exception not raised")
+#     exit(1)
+# except ValueError as e:
+#     if str(e) != "width must be > 0":
+#         print("Wrong exception message: {}".format(e))
+#         exit(1)
+# except Exception as e:
+#     print("Wrong exception: [{}] {}".format(type(e), e))
+#     exit(1)
 
-    s1 = Square(5)
-    s2 = Square(7, 9, 1)
-    list_squares_input = [s1, s2]
+# try:
+#     Square(0)
+#     print("ValueError exception not raised")
+#     exit(1)
+# except ValueError as e:
+#     if str(e) != "width must be > 0":
+#         print("Wrong exception message: {}".format(e))
+#         exit(1)
+# except Exception as e:
+#     print("Wrong exception: [{}] {}".format(type(e), e))
+#     exit(1)
 
-    Square.save_to_file_csv(list_squares_input)
-
-    list_squares_output = Square.load_from_file_csv()
-
-    for square in list_squares_input:
-        print("[{}] {}".format(id(square), square))
-
-    print("---")
-
-    for square in list_squares_output:
-        print("[{}] {}".format(id(square), square))
+# print("OK", end="")
