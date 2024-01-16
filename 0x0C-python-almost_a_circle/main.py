@@ -27,7 +27,6 @@ if list_objs_res is None:
     exit(1)
 
 if len(list_objs_res) != len(list_objs):
-    print(list_objs[-1].id, '\n\n', list_objs_res[-1].id)
     print("load_from_file_csv doesn't return a list")
     exit(1)
 

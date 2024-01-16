@@ -112,7 +112,6 @@ class Base:
         Returns:
             list: list of json objects in the file
         """
-        print(cls.__name__)
         try:
             with open(f"{cls.__name__}.csv", "r") as csvfile:
                 csv_reader = csv.reader(csvfile)
