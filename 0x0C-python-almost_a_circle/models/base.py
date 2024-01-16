@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Base class for all subsequent classes"""
 import json
+import csv
 
 
 class Base:
@@ -77,9 +78,62 @@ class Base:
 
     @classmethod
     def load_from_file(cls):
+        """load json from a file
+
+        Returns:
+            list: list of json objects in the file
+        """
         try:
             with open(f"{cls.__name__}.json", "r") as f:
                 dictnaries = cls.from_json_string(f.read())
+                return [cls.create(**dictionary) for dictionary in dictnaries]
+        except FileNotFoundError:
+            return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """save json object in to a file
+
+        Args:
+            list_objs (list): json objects to save
+        """
+        with open(f"{cls.__name__}.csv", "w", newline="") as f:
+            objs = [obj.to_dictionary() for obj in list_objs if obj]
+
+            csv_writer = csv.writer(f)
+            for list_obj in list_objs:
+                csv_writer.writerow(list_obj.to_dictionary().values())
+        f.close()
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """load json from a file
+
+        Returns:
+            list: list of json objects in the file
+        """
+        try:
+            with open(f"{cls.__name__}.csv", "r") as csvfile:
+                csv_reader = csv.reader(csvfile)
+                header = next(csv_reader, None)
+
+                object_type = {
+                    "Square": ["id", "size", "x", "y"],
+                    "Rectangle": ["id", "width", "height", "x", "y"],
+                }
+
+                # List to store dictionaries
+                dictnaries = []
+                for row in csv_reader:
+                    # Convert the row values to integers
+                    values = [int(value) for value in row]
+
+                    # Create the dictionary using the specified order of keys
+                    dictionary = dict(zip(object_type[cls.__name__], values))
+
+                    # Append the dictionary to the list
+                    dictnaries.append(dictionary)
+
                 return [cls.create(**dictionary) for dictionary in dictnaries]
         except FileNotFoundError:
             return []
