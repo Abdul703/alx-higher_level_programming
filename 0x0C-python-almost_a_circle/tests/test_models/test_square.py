@@ -1,6 +1,7 @@
+#!/usr/bin/python3
+"""Square Testing"""
 import unittest
 from models.square import Square
-"""Square Testing"""
 
 
 class TestSquare(unittest.TestCase):
