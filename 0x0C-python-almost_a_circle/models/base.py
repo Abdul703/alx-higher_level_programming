@@ -72,7 +72,7 @@ class Base:
         Returns:
             instance: an instance that can be Square or Rectangle
         """
-        dummy_instance = cls(1, 2, 3)
+        dummy_instance = cls(1, 2) if cls.__name__ == 'Rectangle' else cls(1)
         dummy_instance.update(**dictionary)
         return dummy_instance
 
