@@ -112,10 +112,11 @@ class Base:
         Returns:
             list: list of json objects in the file
         """
+        print(cls.__name__)
         try:
             with open(f"{cls.__name__}.csv", "r") as csvfile:
                 csv_reader = csv.reader(csvfile)
-                header = next(csv_reader, None)
+                # header = next(csv_reader, None)
 
                 object_type = {
                     "Square": ["id", "size", "x", "y"],

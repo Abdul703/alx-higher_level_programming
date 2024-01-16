@@ -1,32 +1,58 @@
 #!/usr/bin/python3
 """ Check """
 from models.square import Square
+from models.base import Base
+import os
+import random
 
-input_dict = { 'size': 2, 'x': 1 }
-new_rect = Square.create(**input_dict)
 
-if new_rect is None:
-    print("Square.create doesn't create a new Square")
+file_path = "Square.csv"
+if os.path.exists(file_path):
+    os.remove(file_path)
+
+list_objs = []
+for i in range(0, 5):
+    list_objs.append(Square(random.randrange(1, 100, 2), random.randrange(1, 100, 2), random.randrange(1, 100, 2)))
+    
+Square.save_to_file_csv(list_objs)
+
+if not os.path.exists(file_path):
+    print("save_to_file_csv doesn't save to disk the list of Square")
+    exit(1)
+    
+list_objs_res = Square.load_from_file_csv()
+
+if list_objs_res is None:
+    print("load_from_file_csv doesn't return a list")
     exit(1)
 
-if type(new_rect) is not Square:
-    print("Square.create doesn't create a new Square: {}".format(new_rect))
+if len(list_objs_res) != len(list_objs):
+    print(list_objs[-1].id, '\n\n', list_objs_res[-1].id)
+    print("load_from_file_csv doesn't return a list")
     exit(1)
 
-if new_rect.id != input_dict.get('id', 1):
-    print("New Square doesn't have the right ID: {}".format(new_rect.id))
-    exit(1)
+for i in range(0, len(list_objs)):
+    obj = list_objs[i]
+    if i >= len(list_objs_res):
+        print("load_from_file_csv doesn't return all objects")
+        exit(1)
+    
+    obj_res = list_objs_res[i]
+    
+    if obj_res.id != obj.id:
+        print("Square {} not found".format(obj))
+        exit(1)    
 
-if new_rect.size != input_dict['size']:
-    print("New Square doesn't have the right size: {}".format(new_rect.width))
-    exit(1)
+    if obj_res.size != obj.size:
+        print("Square {} doesn't match with the original: {}".format(obj_res, obj))
+        exit(1)
 
-if new_rect.x != input_dict.get('x', 0):
-    print("New Square doesn't have the right x: {}".format(new_rect.x))
-    exit(1)
+    if obj_res.x != obj.x:
+        print("Square {} doesn't match with the original: {}".format(obj_res, obj))
+        exit(1)    
 
-if new_rect.y != input_dict.get('y', 0):
-    print("New Square doesn't have the right y: {}".format(new_rect.y))
-    exit(1)
+    if obj_res.y != obj.y:
+        print("Square {} doesn't match with the original: {}".format(obj_res, obj))
+        exit(1)    
 
 print("OK", end="")
