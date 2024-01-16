@@ -16,7 +16,7 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(square1.area(), 25)
         self.assertEqual(square1.x, 0)
         self.assertEqual(square1.y, 0)
-        self.assertEqual(square1.id, 2)
+        self.assertEqual(square1.id, 17)
 
         square2 = Square(8, 2, 3, 7)
         self.assertEqual(square2.size, 8)
@@ -88,7 +88,7 @@ class TestSquare(unittest.TestCase):
 
     def test_square_str_method(self):
         """Test Square __str__ method"""
-        square = Square(5)
+        square = Square(5, id=3)
         self.assertEqual(str(square), "[Square] (3) 0/0 - 5")
 
         square.update(8, 12, 2, 5)
