@@ -2,4 +2,4 @@
 -- If the database hbtn_0c_0 does not exists, the script will not fail
 
 -- deleting database
-DROP DATABASE IF NOT EXISTS hbtn_0c_0;
+DROP DATABASE IF EXISTS hbtn_0c_0;
