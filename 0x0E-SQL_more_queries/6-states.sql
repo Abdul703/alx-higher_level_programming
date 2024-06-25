@@ -6,6 +6,6 @@ USE hbtn_0d_usa;
 
 -- creating state table
 CREATE TABLE IF NOT EXISTS states(
-    id INT PRIMARY KEY,
+    id INT PRIMARY KEY DEFAULT 1,
     name VARCHAR(256) NOT NULL
 );
